@@ -1,0 +1,10 @@
+<section class="modul-hero" id="navigasi">
+  <div class="container">
+    <h1>🧭 Navigasi Maritim Modern</h1>
+    <p class="subtitle">Mastering Marine Navigation & Bridge Operations</p>
+    <div class="progress-indicator">
+      <div class="progress-bar" style="width: 65%"></div>
+      <span>65% Complete</span>
+    </div>
+  </div>
+</section>

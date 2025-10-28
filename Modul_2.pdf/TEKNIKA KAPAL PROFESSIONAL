@@ -1,0 +1,10 @@
+<section class="modul-hero" id="teknika">
+  <div class="container">
+    <h1>⚙️ Teknika Kapal & Engine Room Management</h1>
+    <p class="subtitle">Marine Engineering Systems & Maintenance</p>
+    <div class="progress-indicator">
+      <div class="progress-bar" style="width: 40%"></div>
+      <span>40% Complete</span>
+    </div>
+  </div>
+</section>
