@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACADEMY MARITIM RAFAEL (AKMAR) Surabaya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a2463 0%, #247ba0 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, #001845 0%, #003d82 100%);
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-bottom: 5px solid #FFD700;
+        }
+
+        .hero img {
+            height: 80px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 4px 8px rgba(255,215,0,0.3));
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 1.3em;
+            color: #b8d4e8;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        .hero .subtitle {
+            font-size: 1em;
+            color: #90caf9;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            background: #001845;
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            sticky: top 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 5px 15px;
+        }
+
+        nav a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: #FFD700;
+            color: #001845;
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Modules Section */
+        .modules {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+
+        .modules h2 {
+            color: #001845;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #FFD700;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .modules ol {
+            counter-reset: module-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .modules li {
+            counter-increment: module-counter;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 6px solid #003d82;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .modules li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            border-left-color: #FFD700;
+        }
+
+        .modules li::before {
+            content: counter(module-counter);
+            position: absolute;
+            left: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #003d82;
+            color: #FFD700;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .modules li strong {
+            color: #001845;
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .modules li br + text {
+            color: #555;
+        }
+
+        /* Module Icons */
+        .module-icon {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-top: 4px solid #FFD700;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .stat-card h3 {
+            color: #003d82;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .info-section h2 {
+            color: #001845;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 6px solid #FFD700;
+            padding-left: 20px;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-section li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            color: #555;
+        }
+
+        .info-section li:last-child {
+            border-bottom: none;
+        }
+
+        .info-section li::before {
+            content: "⚓ ";
+            color: #003d82;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #001845;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer .copyright {
+            color: #FFD700;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 1.1em;
+            }
+
+            .modules li::before {
+                position: static;
+                transform: none;
+                margin-bottom: 15px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .modules li {
+                padding-left: 25px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #003d82;
+            color: #FFD700;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            background: #FFD700;
+            color: #001845;
+            transform: scale(1.05);
+        }
+
+        .action-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="hero">
+        <div style="font-size: 4em; margin-bottom: 10px;">⚓</div>
+        <h1>ACADEMY MARITIM RAFAEL</h1>
+        <h2>Excellence in Maritime Education</h2>
+        <p class="subtitle">Filial POLTEKPEL SURABAYA - IMO Compliant Training Center</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#modules">📚 Modul</a></li>
+            <li><a href="#facilities">🏢 Fasilitas</a></li>
+            <li><a href="#certification">🎓 Sertifikasi</a></li>
+            <li><a href="#admission">📝 Pendaftaran</a></li>
+            <li><a href="#contact">📞 Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <h3>6</h3>
+                <p>Divisi Pembelajaran</p>
+            </div>
+            <div class="stat-card">
+                <h3>IMO</h3>
+                <p>Standar Internasional</p>
+            </div>
+            <div class="stat-card">
+                <h3>STCW</h3>
+                <p>Certified Training</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Job Placement Rate</p>
+            </div>
+        </div>
+
+        <!-- Modules Section -->
+        <section id="modules" class="modules">
+            <h2><span class="module-icon">📚</span>MODUL PEMBELAJARAN AKMAR</h2>
+            <ol>
+                <li>
+                    <strong>🧭 Navigasi Maritim</strong><br>
+                    Dasar-dasar navigasi, pembacaan peta laut, sistem kompas (magnetic & gyro), teknik plotting posisi, navigasi astronomi, dan pengoperasian sistem navigasi modern (GPS, ECDIS, Radar, AIS). Termasuk Bridge Resource Management (BRM) dan COLREG compliance.
+                </li>
+                
+                <li>
+                    <strong>⚙️ Kelas Teknika - Permesinan Kapal</strong><br>
+                    Mesin induk (diesel & steam turbine), mesin bantu, sistem bahan bakar, sistem pelumasan, sistem pendingin, boiler & steam system, sistem propulsi, pompa & kompresor, sistem hidrolik & pneumatik, serta maintenance & overhaul procedures.
+                </li>
+
+                <li>
+                    <strong>⚡ Kelas ETO - Electrical, Electronic & PLC</strong><br>
+                    Sistem kelistrikan kapal (AC/DC, generator, switchboard, motor), elektronika navigasi (radar, gyro, GPS, echo sounder), PLC & automation systems, safety & control devices, GMDSS communication systems, dan troubleshooting electrical systems.
+                </li>
+
+                <li>
+                    <strong>💼 Maritime Business Development (BIZDEV)</strong><br>
+                    Ship ownership & investment, IPO (Initial Public Offering) untuk perusahaan pelayaran, crewing agency operations, ship management, PBM (Pelayanan Bongkar Muat), ship agency services, chartering & freight forwarding, dan maritime business economics.
+                </li>
+
+                <li>
+                    <strong>⚖️ Hukum & Regulasi Maritim Internasional</strong><br>
+                    UN Convention on the Law of the Sea (UNCLOS), IMO Conventions (SOLAS, MARPOL, STCW, MLC, ISM Code, ISPS Code), IACS Member Regulations, P&I Insurance, maritime lien & ship arrest, flag state & port state control, dan maritime legal compliance.
+                </li>
+
+                <li>
+                    <strong>🔧 Docking, UWILD & Emergency Repairs</strong><br>
+                    Drydocking fundamentals & procedures, hull inspection & steel renewal, underwater hull cleaning & coating, propeller & tailshaft overhaul, UWILD (Under Water Inspection in Lieu of Drydocking), emergency docking scenarios, dan ship repair management.
+                </li>
+            </ol>
+        </section>
+
+        <!-- Facilities -->
+        <section id="facilities" class="info-section">
+            <h2>🏢 Fasilitas Pelatihan</h2>
+            <ul>
+                <li>Full Mission Bridge Simulator (STCW Compliant)</li>
+                <li>Engine Room Simulator (MAN & Wärtsilä Systems)</li>
+                <li>ECDIS & Radar Training Lab</li>
+                <li>PLC & Automation Workshop</li>
+                <li>Electrical Systems Lab (Generator, Switchboard, Motor Control)</li>
+                <li>GMDSS Communication Lab</li>
+                <li>Maritime Business Classroom (Integrated with Bloomberg Terminal)</li>
+                <li>Welding & Fabrication Workshop</li>
+                <li>Library & E-Learning Platform (Moodle-based)</li>
+                <li>Student Accommodation & Mess Hall</li>
+            </ul>
+        </section>
+
+        <!-- Certification -->
+        <section id="certification" class="info-section">
+            <h2>🎓 Sertifikasi Yang Diperoleh</h2>
+            <ul>
+                <li>Certificate of Competency (COC) - STCW Compliant</li>
+                <li>Certificate of Proficiency (COP) - STCW Mandatory Courses</li>
+                <li>GMDSS General Operator's Certificate (GOC)</li>
+                <li>Advanced Fire Fighting (AFF) Certificate</li>
+                <li>Medical First Aid / Medical Care Certificate</li>
+                <li>ECDIS Generic & Type-Specific Certificate</li>
+                <li>Engine Room Simulator (ERS) Certificate</li>
+                <li>Maritime Business Management Certificate</li>
+                <li>PLC Programming & Troubleshooting Certificate</li>
+                <li>ISM Code & Safety Management Certificate</li>
+            </ul>
+        </section>
+
+        <!-- Admission -->
+        <section id="admission" class="info-section">
+            <h2>📝 Persyaratan Pendaftaran</h2>
+            <ul>
+                <li>Lulusan SMA/SMK atau sederajat (min. nilai 7.0)</li>
+                <li>Usia maksimal 23 tahun (untuk program Diploma)</li>
+                <li>Tinggi badan minimal 160 cm (pria), 155 cm (wanita)</li>
+                <li>Sehat jasmani & rohani (Medical Certificate required)</li>
+                <li>Tidak buta warna (Color Blind Test)</li>
+                <li>Kemampuan Bahasa Inggris (min. TOEFL 450 atau setara)</li>
+                <li>Bebas narkoba (Drug Test required)</li>
+                <li>Lulus tes akademik (Matematika, Fisika, Bahasa Inggris)</li>
+                <li>Lulus tes kesehatan & psikologi</li>
+            </ul>
+        </section>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="#" class="btn">📥 Download Brosur</a>
+            <a href="#" class="btn">📝 Daftar Online</a>
+            <a href="#" class="btn">💬 Hubungi Kami</a>
+        </div>
+
+        <!-- Contact Info -->
+        <section id="contact" class="info-section">
+            <h2>📞 Informasi Kontak</h2>
+            <ul>
+                <li><strong>Alamat:</strong> Jl. Maritim Raya No. 123, Tanjung Perak, Surabaya 60165</li>
+                <li><strong>Telepon:</strong> +62 31 1234 5678</li>
+                <li><strong>WhatsApp:</strong> +62 812 3456 7890</li>
+                <li><strong>Email:</strong> info@akmar-surabaya.ac.id</li>
+                <li><strong>Website:</strong> www.akmar-surabaya.ac.id</li>
+                <li><strong>Instagram:</strong> @akmar.surabaya</li>
+                <li><strong>Jam Operasional:</strong> Senin - Jumat, 08:00 - 16:00 WIB</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>⚓ ACADEMY MARITIM RAFAEL (AKMAR) SURABAYA</p>
+        <p>Filial POLTEKPEL SURABAYA - Kementerian Perhubungan RI</p>
+        <p>IMO Compliant Training Center | STCW Approved</p>
+        <p class="copyright">© 2025 AKMAR Surabaya. All Rights Reserved.</p>
+        <p style="margin-top: 15px; color: #90caf9; font-style: italic;">"Integritas di Laut, Inovasi di Darat"</p>
+    </footer>
+</body>
+</html>
